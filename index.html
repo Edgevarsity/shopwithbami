@@ -1,653 +1,430 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
 <head>
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>shopwithbami | Shop online</title>
     <link rel="icon" type="image/svg+xml" href="Assets/favicon.svg">
     <meta name="theme-color" content="#5b21b6">
 
     <!-- Font Awesome 6 CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-
-
+    <link rel="stylesheet" href="store.css">
 </head>
 
-<link rel="stylesheet" href="store.css">
-
-<body style="background-color: white;">
-
+<body>
 
     <div class="site-notice">shopwithbami is an independent demo storefront.</div>
 
-
     <!-- NAVIGATION -->
-    <nav>
-
+    <header class="site-header">
         <div class="nav-one">
-            <img src="Assets/shopwithbami-logo.svg" alt="shopwithbami logo">
+            <a href="index.html" class="brand-home-link" id="brand-home-link" aria-label="shopwithbami home">
+                <img src="Assets/shopwithbami-logo.svg" alt="shopwithbami logo" width="165" height="33">
+            </a>
 
-            <div class="searchbar">
-                <i style="padding-left: 15px;" class="fa-solid fa-magnifying-glass"></i>
-
-                <input class="inner-searchbar" type="search" placeholder="Search Products, brands and categories">
-
-                <button class="search-button" type="submit">Search</button>
+            <div class="search-wrapper">
+                <form class="searchbar" id="search-form" role="search">
+                    <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                    <input class="inner-searchbar" id="search-input" type="search" autocomplete="off"
+                        placeholder="Search products, brands and categories"
+                        aria-label="Search products, brands and categories">
+                    <button class="search-button" type="submit">Search</button>
+                </form>
+                <div class="search-suggestions" id="search-suggestions" hidden></div>
             </div>
 
             <div class="nav-actions">
-                <a href="accountcreation.html"><button class="topbar-button">
-                    <i class="fa-regular fa-user"></i>
-                    Account
-                    <i class="fa-solid fa-angle-down"></i>
-                </button></a>
+                <div class="swb-dropdown" id="nav-account-dropdown">
+                    <button type="button" class="topbar-button" aria-expanded="false" aria-haspopup="true">
+                        <i class="fa-regular fa-user" aria-hidden="true"></i>
+                        <span id="nav-account-label">Account</span>
+                        <i class="fa-solid fa-angle-down" aria-hidden="true"></i>
+                    </button>
+                    <div class="swb-dropdown-menu" id="nav-account-menu" role="menu"></div>
+                </div>
 
-                <button class="topbar-button">
-                    <i class="fa-regular fa-circle-question"></i>
-                    Help
-                    <i class="fa-solid fa-angle-down"></i>
-                </button>
+                <div class="swb-dropdown" id="nav-help-dropdown">
+                    <button type="button" class="topbar-button" aria-expanded="false" aria-haspopup="true">
+                        <i class="fa-regular fa-circle-question" aria-hidden="true"></i>
+                        <span>Help</span>
+                        <i class="fa-solid fa-angle-down" aria-hidden="true"></i>
+                    </button>
+                    <div class="swb-dropdown-menu" id="nav-help-menu" role="menu">
+                        <button type="button" class="swb-dropdown-item" data-help="center"><i class="fa-solid fa-life-ring"></i> Help Center</button>
+                        <button type="button" class="swb-dropdown-item" data-help="track"><i class="fa-solid fa-truck-fast"></i> Track My Order</button>
+                        <button type="button" class="swb-dropdown-item" data-help="returns"><i class="fa-solid fa-rotate-left"></i> Returns &amp; Refunds</button>
+                        <div class="swb-dropdown-divider"></div>
+                        <button type="button" class="swb-dropdown-item" data-help="contact"><i class="fa-solid fa-phone"></i> Call: 0201 888 1106</button>
+                    </div>
+                </div>
 
-                <button class="topbar-button">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                    Cart
+                <button type="button" class="topbar-button cart-topbar-btn" id="nav-cart-btn" aria-label="Open shopping cart">
+                    <span class="cart-icon-wrap">
+                        <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+                        <span class="cart-count-badge" id="cart-badge" hidden>0</span>
+                    </span>
+                    <span>Cart</span>
                 </button>
             </div>
         </div>
 
-
         <div class="nav-two-wrapper">
-
-            <button class="nav-two-btn nav-two-left" id="nav-two-left" aria-label="Scroll categories left">
+            <button type="button" class="nav-two-btn nav-two-left" id="nav-two-left" aria-label="Scroll categories left">
                 <i class="fa-solid fa-chevron-left"></i>
             </button>
 
-            <nav class="nav-two" id="nav-two">
+            <nav class="nav-two" id="nav-two" aria-label="Product categories">
                 <ul class="nav-two-child">
-                    <li><i class="fa-solid fa-bag-shopping"></i> Official Store</li>
-                    <li><i class="fa-solid fa-house-user"></i> Appliances</li>
-                    <li><i class="fa-solid fa-mobile"></i> Phones & Tablets</li>
-                    <li><i class="fa-solid fa-prescription-bottle-medical"></i> Health and Beauty</li>
-                    <li><i class="fa-solid fa-briefcase"></i> Home & Office</li>
-                    <li><i class="fa-solid fa-microchip"></i> Electronics</li>
-                    <li><i class="fa-solid fa-shirt"></i> Fashion</li>
-                    <li><i class="fa-solid fa-apple-whole"></i> Supermarket</li>
-                    <li><i class="fa-solid fa-display"></i> Computing</li>
-                    <li><i class="fa-solid fa-baby"></i> Baby products</li>
-                    <li><i class="fa-solid fa-gamepad"></i> Gaming</li>
-                    <li><i class="fa-solid fa-ellipsis"></i> Other categories</li>
+                    <li><button type="button" data-category="Official Store"><i class="fa-solid fa-bag-shopping"></i> Official Store</button></li>
+                    <li><button type="button" data-category="Appliances"><i class="fa-solid fa-house-user"></i> Appliances</button></li>
+                    <li><button type="button" data-category="Phones & Tablets"><i class="fa-solid fa-mobile"></i> Phones &amp; Tablets</button></li>
+                    <li><button type="button" data-category="Health and Beauty"><i class="fa-solid fa-prescription-bottle-medical"></i> Health and Beauty</button></li>
+                    <li><button type="button" data-category="Home & Office"><i class="fa-solid fa-briefcase"></i> Home &amp; Office</button></li>
+                    <li><button type="button" data-category="Electronics"><i class="fa-solid fa-microchip"></i> Electronics</button></li>
+                    <li><button type="button" data-category="Fashion"><i class="fa-solid fa-shirt"></i> Fashion</button></li>
+                    <li><button type="button" data-category="Supermarket"><i class="fa-solid fa-apple-whole"></i> Supermarket</button></li>
+                    <li><button type="button" data-category="Computing"><i class="fa-solid fa-display"></i> Computing</button></li>
+                    <li><button type="button" data-category="Baby products"><i class="fa-solid fa-baby"></i> Baby products</button></li>
+                    <li><button type="button" data-category="Gaming"><i class="fa-solid fa-gamepad"></i> Gaming</button></li>
+                    <li><button type="button" data-category="Other categories"><i class="fa-solid fa-ellipsis"></i> All Products</button></li>
                 </ul>
             </nav>
 
-            <button class="nav-two-btn nav-two-right" id="nav-two-right" aria-label="Scroll categories right">
+            <button type="button" class="nav-two-btn nav-two-right" id="nav-two-right" aria-label="Scroll categories right">
                 <i class="fa-solid fa-chevron-right"></i>
             </button>
+        </div>
+    </header>
 
+    <!-- FILTERED CATALOG / SEARCH RESULTS VIEW -->
+    <section class="catalog-view" id="catalog-view" hidden aria-live="polite">
+        <div class="catalog-view-header">
+            <div>
+                <button type="button" class="catalog-back-btn" id="catalog-back-btn">
+                    <i class="fa-solid fa-arrow-left"></i> Back to Storefront
+                </button>
+                <h2 id="catalog-view-title">Search Results</h2>
+                <p id="catalog-view-count"></p>
+            </div>
+            <div class="catalog-controls">
+                <label for="catalog-sort">Sort by:</label>
+                <select id="catalog-sort">
+                    <option value="featured">Featured</option>
+                    <option value="price-asc">Price: Low to High</option>
+                    <option value="price-desc">Price: High to Low</option>
+                    <option value="rating-desc">Customer Rating</option>
+                    <option value="discount-desc">Biggest Discount</option>
+                </select>
+            </div>
+        </div>
+        <div class="catalog-grid" id="catalog-grid"></div>
+    </section>
+
+    <main id="storefront-main">
+
+        <!-- MAIN BANNER -->
+        <div class="slider" id="hero-slider">
+            <div class="controls">
+                <button type="button" class="move-left-one" id="hero-prev" onclick="previousImage()" aria-label="Previous banner">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <a href="#flash-sales-section" class="hero-slide-link" id="hero-slide-link">
+                    <img id="image" src="Assets/shopwithbami-hero.svg" alt="Welcome to shopwithbami">
+                </a>
+                <button type="button" class="move-right-one" id="hero-next" onclick="nextImage()" aria-label="Next banner">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+                <div class="hero-dots" id="hero-dots" aria-label="Banner slide selector"></div>
+            </div>
         </div>
 
+        <!-- CATEGORY PROMO SLIDER -->
+        <div class="category-slider">
+            <button type="button" class="move-left-two" id="slider-left-two" aria-label="Scroll promotions left">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
 
-    </nav>
+            <div class="category-images" id="category-images">
+                <button type="button" class="promo-tile" data-promo="call-to-order" aria-label="Call to Order">
+                    <img src="Assets/call-to-order.png" alt="Call to Order">
+                </button>
+                <button type="button" class="promo-tile" data-promo="clearance" aria-label="Clearance Sales">
+                    <img src="Assets/clearance.png" alt="Clearance Sales">
+                </button>
+                <button type="button" class="promo-tile" data-promo="banger-deals" aria-label="Banger Deals">
+                    <img src="Assets/BANGER-DEALS-ezgif.com-optimize.gif" alt="Banger Deals">
+                </button>
+                <button type="button" class="promo-tile" data-promo="buy-2" aria-label="Buy 2 Pay for 1">
+                    <img src="Assets/buy2-1.png" alt="Buy 2 Pay for 1">
+                </button>
+                <button type="button" class="promo-tile" data-promo="trendyol" aria-label="Trendyol Fashion Store">
+                    <img src="Assets/trendyol.png" alt="Trendyol Store">
+                </button>
+                <button type="button" class="promo-tile" data-promo="new-arrival" aria-label="New Arrivals">
+                    <img src="Assets/new-arrival.png" alt="New Arrival">
+                </button>
+                <button type="button" class="promo-tile" data-promo="shoes" aria-label="Shoes Deals">
+                    <img src="Assets/shoes-.png" alt="Shoes">
+                </button>
+            </div>
 
-
-    <!-- MAIN BANNER -->
-    <div class="slider">
-
-        <div class="controls">
-            <button class="move-left-one" onclick="previousImage()">&lt;</button>
-            <img id="image" src="Assets/shopwithbami-hero.svg" alt="Welcome to shopwithbami">
-            <button class="move-right-one" onclick="nextImage()">&gt;</button>
-        </div>
-    </div>
-
-
-    <!-- CATEGORY SLIDER -->
-    <div class="category-slider">
-
-        <button class="move-left-two" id="slider-left-two">
-            <i class="fa-solid fa-chevron-left"></i>
-        </button>
-
-        <div class="category-images">
-
-            <img src="Assets/call-to-order.png" alt="Call to Order">
-
-            <img src="Assets/delivery.png" alt="Fast delivery">
-
-            <img style="border-radius: 20px;" src="Assets/BANGER-DEALS-ezgif.com-optimize.gif" alt="Banger Deals">
-
-            <img src="Assets/buy2-1.png" alt="Buy 2">
-
-            <img style="border-radius: 20px;" src="Assets/trendyol.png" alt="Trendyol">
-
-            <img src="Assets/new-arrival.png" alt="New Arrival">
-
-            <img src="Assets/shoes-.png" alt="Shoes">
-
+            <button type="button" class="move-right-two" id="slider-right-two" aria-label="Scroll promotions right">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
         </div>
 
-        <button class="move-right-two" id="slider-right-two">
-            <i class="fa-solid fa-chevron-right"></i>
-        </button>
+        <!-- FLASH SALES -->
+        <section class="flash-sales-section" id="flash-sales-section">
+            <div class="flash-sales-header">
+                <div class="flash-sales-title">
+                    <i class="fa-solid fa-bolt"></i>
+                    <div>
+                        <h2>Flash Sales</h2>
+                        <p>Limited stock deals — refreshed daily</p>
+                    </div>
+                </div>
 
-    </div>
+                <div class="flash-sales-countdown" aria-label="Flash sales countdown timer">
+                    <span>TIME LEFT:</span>
+                    <div class="countdown-unit" id="hours">05</div>
+                    <b>:</b>
+                    <div class="countdown-unit" id="minutes">00</div>
+                    <b>:</b>
+                    <div class="countdown-unit" id="seconds">00</div>
+                </div>
 
+                <button type="button" class="flash-sales-see-all" data-see-all="flash-sales">
+                    See All <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
 
+            <div class="flash-sales-progress">
+                <div id="flash-sales-progress-fill"></div>
+            </div>
 
+            <div class="flash-sales-products" id="flash-sales-products">
+                <!-- Product cards populated by store.js -->
+            </div>
+        </section>
 
-    <!-- FLASH SALES -->
+        <!-- DEALS OF THE DAY -->
+        <section class="deals-section" aria-label="Deals of the Day">
+            <div class="deals-section-header">
+                <h2>Deals of the Day</h2>
+                <button type="button" class="deals-see-all" data-see-all="hot-deals-right-now">
+                    See All <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+            <div class="deals">
+                <button type="button" class="deal-card" data-deal-section="hot-deals-right-now" aria-label="Shop Deals of the Day">
+                    <img src="Assets/DEALS.gif" alt="Deals of the Day">
+                </button>
+                <button type="button" class="deal-card" data-deal-query="ASUS Vivobook" aria-label="ASUS Vivobook Deal">
+                    <img src="Assets/deals-of-the-day-asus.jpg" alt="ASUS Vivobook 14 Deal">
+                </button>
+                <button type="button" class="deal-card" data-deal-section="deals-on-air-conditioners" aria-label="Hisense Air Conditioner Deal">
+                    <img src="Assets/deals-of-the-day-hisense.jpg" alt="Hisense Split Air Conditioner Deal">
+                </button>
+                <button type="button" class="deal-card" data-deal-category="Health and Beauty" aria-label="Nivea Care Deal">
+                    <img src="Assets/deals-of-the-day-nivea.jpg" alt="Nivea Men Deal">
+                </button>
+                <button type="button" class="deal-card" data-deal-query="32 Inch" aria-label="Mi+ 32 Inch Satellite TV Deal">
+                    <img src="Assets/deals-of-the-day-mit.jpg" alt="32 Inch Digital Satellite TV Deal">
+                </button>
+            </div>
+        </section>
 
-    <!-- FLASH SALES -->
-    <section class="flash-sales-section">
-        <div class="flash-sales-header">
-            <div class="flash-sales-title">
-                <i class="fa-solid fa-bolt"></i>
-                <div>
-                    <h2>Flash Sales</h2>
+        <!-- ALL YOUR ESSENTIALS IN ONE PLACE -->
+        <section class="essentials-section" aria-labelledby="essentials-heading">
+            <h2 id="essentials-heading">All Your Essentials in One Place</h2>
+            <div class="essentials-grid">
+                <article role="button" tabindex="0" data-essential-category="Appliances"><img src="Assets/essential-1.png" alt="Appliances"><p>Appliance deals</p></article>
+                <article role="button" tabindex="0" data-essential-category="Health and Beauty"><img src="Assets/essential-2.png" alt="Beauty products"><p>Beauty must-haves</p></article>
+                <article role="button" tabindex="0" data-essential-category="Computing"><img src="Assets/essential-3.png" alt="Computers"><p>Computing deals</p></article>
+                <article role="button" tabindex="0" data-essential-category="Home & Office"><img src="Assets/essential-4.png" alt="Home and office"><p>Home &amp; Office</p></article>
+                <article role="button" tabindex="0" data-essential-query="Sneakers"><img src="Assets/essential-5.png" alt="Sneakers"><p>Sneaker deals</p></article>
+                <article role="button" tabindex="0" data-essential-section="mobile-accessories-deals"><img src="Assets/essential-6.png" alt="Mobile accessories"><p>Mobile accessories</p></article>
+                <article role="button" tabindex="0" data-essential-category="Fashion"><img src="Assets/essential-7.png" alt="Fashion"><p>Fashion deals</p></article>
+                <article role="button" tabindex="0" data-essential-category="Supermarket"><img src="Assets/essential-8.png" alt="Supermarket"><p>Supermarket deals</p></article>
+                <article role="button" tabindex="0" data-essential-section="smart-tvs-deals"><img src="Assets/essential-9.png" alt="Televisions"><p>Television deals</p></article>
+                <article role="button" tabindex="0" data-essential-category="Baby products"><img src="Assets/essential-10.png" alt="Kids and baby products"><p>Kids, baby &amp; more</p></article>
+                <article role="button" tabindex="0" data-essential-category="Phones & Tablets"><img src="Assets/essential-11.png" alt="Phones and tablets"><p>Phones &amp; tablets</p></article>
+                <article role="button" tabindex="0" data-essential-section="brand-festival"><img src="Assets/Final.png" alt="Brand festival"><p>Brand festival</p></article>
+            </div>
+        </section>
+
+        <!-- PRODUCT SHELVES (populated dynamically by store.js from catalog.js) -->
+        <section class="design-1" data-section-id="top-sellers"></section>
+        <section class="design-2" data-section-id="sponsored-products"></section>
+        <section class="design-1" data-section-id="brand-festival"></section>
+        <section class="design-2" data-section-id="top-selling-items"></section>
+        <section class="design-1" data-section-id="samsung-official-store"></section>
+        <section class="design-2" data-section-id="everyday-essentials"></section>
+        <section class="design-1" data-section-id="deals-on-air-conditioners"></section>
+        <section class="design-2" data-section-id="smart-tvs-deals"></section>
+        <section class="design-1" data-section-id="kitchen-and-dining-deals"></section>
+        <section class="design-2" data-section-id="health-and-relaxation-deals"></section>
+        <section class="design-1" data-section-id="mens-clothing"></section>
+        <section class="design-2" data-section-id="hikers-official-store"></section>
+        <section class="design-1" data-section-id="beyond-the-brand"></section>
+        <section class="design-2" data-section-id="computing-deals"></section>
+        <section class="design-1" data-section-id="mobile-accessories-deals"></section>
+        <section class="design-2" data-section-id="kids-play-nest"></section>
+        <section class="design-1" data-section-id="hot-deals-right-now"></section>
+        <section class="design-2" data-section-id="premium-bar"></section>
+        <section class="design-1" data-section-id="games-and-consoles"></section>
+
+        <!-- ABOUT STORE -->
+        <section class="about-store" aria-labelledby="about-store-title">
+            <div class="about-store__intro">
+                <span class="about-store__eyebrow">Nigeria's online marketplace</span>
+                <h2 id="about-store-title">Everyday shopping made simple</h2>
+                <p>Find the things you need, discover fresh deals, and shop confidently from anywhere in Nigeria.</p>
+                <div class="about-store__benefits">
+                    <span><i class="fa-solid fa-truck-fast"></i> Fast delivery</span>
+                    <span><i class="fa-solid fa-rotate-left"></i> Easy returns</span>
+                    <span><i class="fa-solid fa-shield-halved"></i> Secure shopping</span>
                 </div>
             </div>
 
-            <div class="flash-sales-countdown">
-                <span>TIME LEFT:</span>
-                <div class="countdown-unit" id="hours">05</div>
-                <b>:</b>
-                <div class="countdown-unit" id="minutes">00</div>
-                <b>:</b>
-                <div class="countdown-unit" id="seconds">00</div>
+            <div class="about-store__grid">
+                <article class="about-store__card about-store__card--wide">
+                    <div class="about-store__icon"><i class="fa-solid fa-bag-shopping"></i></div>
+                    <div>
+                        <h3>Shop for everything you need</h3>
+                        <p>shopwithbami brings fashion, electronics, mobile phones, computers, groceries, and everyday essentials together in one convenient storefront. Shop from home or during a break and have your order delivered without the stress of moving around.</p>
+                        <p>Discover new products, compare deals, and enjoy flexible payment options, free returns, and a smooth online shopping experience.</p>
+                    </div>
+                </article>
+
+                <article class="about-store__card">
+                    <div class="about-store__icon"><i class="fa-solid fa-tags"></i></div>
+                    <h3>Original products, great prices</h3>
+                    <p>Explore competitive offers from popular brands including Oraimo, Samsung, Infinix, Xiaomi, Tecno, Adidas, Nike, and Trendyol. Featured stores make it easy to discover launches, brand days, and limited offers.</p>
+                    <a href="#catalog-view" class="about-store__link" data-browse-category="Official Store">Explore official stores <i class="fa-solid fa-arrow-right"></i></a>
+                </article>
+
+                <article class="about-store__card">
+                    <div class="about-store__icon"><i class="fa-solid fa-shirt"></i></div>
+                    <h3>Fashion for every style</h3>
+                    <p>Browse clothing, shoes, bags, jewelry, watches, sportswear, and accessories for women, men, and children. Find current styles for daily wear, work, special occasions, and the gym.</p>
+                    <a href="#catalog-view" class="about-store__link" data-browse-category="Fashion">Shop fashion <i class="fa-solid fa-arrow-right"></i></a>
+                </article>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-newsletter">
+            <div class="newsletter-brand">
+                <h2>shopwithbami</h2>
+                <p>PAY LESS, LIVE MORE!</p>
             </div>
 
-            <button class="flash-sales-see-all">
-                See All <i class="fa-solid fa-arrow-right"></i>
-            </button>
+            <div class="newsletter-content">
+                <h3>NEW TO SHOPWITHBAMI?</h3>
+                <p>Subscribe to our newsletter to get updates on our latest offers!</p>
+                <form class="newsletter-form" novalidate>
+                    <input type="email" placeholder="Enter E-mail Address" aria-label="Email address">
+                    <button type="submit">SUBSCRIBE</button>
+                </form>
+                <label class="newsletter-consent">
+                    <input type="checkbox">
+                    I agree to shopwithbami's Privacy and Cookie Policy.
+                </label>
+            </div>
+
+            <div class="newsletter-app">
+                <h3>GET THE SHOPWITHBAMI APP</h3>
+                <p>Get access to exclusive offers!</p>
+                <div class="app-buttons">
+                    <a href="#" data-info="shopwithbami Mobile App (Google Play)"><i class="fa-brands fa-google-play"></i> Google Play</a>
+                    <a href="#" data-info="shopwithbami Mobile App (App Store)"><i class="fa-brands fa-apple"></i> App Store</a>
+                </div>
+            </div>
         </div>
 
-        <div class="flash-sales-progress">
-            <div></div>
+        <div class="footer-main">
+            <div class="footer-column">
+                <h4>LET US HELP YOU</h4>
+                <a href="#" data-info="Help Center">Help Center</a>
+                <a href="#" data-info="How to buy on shopwithbami">How to buy on shopwithbami</a>
+                <a href="#" data-info="Delivery Options">Delivery Options</a>
+                <a href="#" data-info="Return Policy">Return Policy</a>
+                <a href="#" data-info="Corporate & Bulk Purchases">Corporate &amp; Bulk Purchases</a>
+                <a href="#" data-info="Report a Product">Report a Product</a>
+                <a href="#" data-info="Dispute Resolution Policy">Dispute Resolution Policy</a>
+            </div>
+
+            <div class="footer-column">
+                <h4>ABOUT SHOPWITHBAMI</h4>
+                <a href="#about-store-title">About Us</a>
+                <a href="#" data-info="Careers at shopwithbami">Careers</a>
+                <a href="#" data-info="Terms and Conditions">Terms and Conditions</a>
+                <a href="#" data-info="Privacy Notice">Privacy Notice</a>
+                <a href="#" data-info="Express Delivery">Express delivery</a>
+                <a href="#" data-info="Global Marketplace">Global marketplace</a>
+                <a href="#flash-sales-section">Flash Sales</a>
+            </div>
+
+            <div class="footer-column">
+                <h4>MAKE MONEY WITH US</h4>
+                <a href="#" data-info="Sell on shopwithbami">Sell on shopwithbami</a>
+                <a href="#" data-info="Become an Affiliate">Become an Affiliate</a>
+                <a href="#" data-info="Become a Logistics Partner">Become a Logistics Partner</a>
+                <a href="#" data-info="Vendor Hub">Vendor Hub</a>
+                <a href="#" data-info="Start Selling">Start Selling</a>
+            </div>
+
+            <div class="footer-column">
+                <h4>SHOPWITHBAMI INTERNATIONAL</h4>
+                <a href="#" data-info="shopwithbami Algeria">Algeria</a>
+                <a href="#" data-info="shopwithbami Egypt">Egypt</a>
+                <a href="#" data-info="shopwithbami Ghana">Ghana</a>
+                <a href="#" data-info="shopwithbami Ivory Coast">Ivory Coast</a>
+                <a href="#" data-info="shopwithbami Kenya">Kenya</a>
+                <a href="#" data-info="shopwithbami Morocco">Morocco</a>
+                <a href="#" data-info="shopwithbami Senegal">Senegal</a>
+                <a href="#" data-info="shopwithbami Uganda">Uganda</a>
+            </div>
+
+            <div class="footer-column">
+                <h4>JOIN US ON</h4>
+                <div class="social-links">
+                    <a href="#" data-info="shopwithbami on Facebook">Facebook</a>
+                    <a href="#" data-info="shopwithbami on Instagram">Instagram</a>
+                    <a href="#" data-info="shopwithbami on Twitter / X">Twitter / X</a>
+                    <a href="#" data-info="shopwithbami on YouTube">YouTube</a>
+                    <a href="#" data-info="shopwithbami on TikTok">TikTok</a>
+                </div>
+
+                <h4 class="payment-heading">PAYMENT METHODS</h4>
+                <div class="payment-methods">
+                    <span>VISA</span>
+                    <span>Mastercard</span>
+                    <span>Verve</span>
+                    <span>Pay on Delivery</span>
+                </div>
+            </div>
         </div>
 
-        <div class="flash-sales-products" id="flash-sales-products">
-            <!-- Product cards are added here using JavaScript -->
+        <div class="footer-bottom">
+            <div class="footer-logo">shopwithbami</div>
+            <p>&copy; 2026 shopwithbami. All rights reserved.</p>
+            <div class="bottom-links">
+                <a href="#" data-info="Privacy Policy">Privacy</a>
+                <a href="#" data-info="Terms of Use">Terms</a>
+                <a href="#" data-info="Cookie Settings">Cookies</a>
+            </div>
         </div>
-    </section>
+    </footer>
 
-
-
-    <!-- DEALS OF THE DAY -->
-    <div>
-
-
-
-        <div class="deals">
-
-            <img src="Assets/DEALS.gif" alt="Deals">
-
-            <img src="Assets/deals-of-the-day-asus.jpg" alt="ASUS Deal">
-
-            <img src="Assets/deals-of-the-day-hisense.jpg" alt="Hisense Deal">
-
-            <img src="Assets/deals-of-the-day-nivea.jpg" alt="Nivea Deal">
-
-            <img src="Assets/deals-of-the-day-mit.jpg" alt="MIT Deal">
-
-            <img src="Assets/DEALS.gif" alt="Deals">
-
-        </div>
-
-    </div>
-
-    <!-- ALL YOUR ESSENTIALS IN ONE PLACE -->
-    <section class="essentials-section">
-        <p>All Your Essentials in One Place</p>
-        <div class="essentials-grid">
-            <article><img src="Assets/essential-1.png" alt="Appliances"><p>Appliance deals</p></article>
-            <article><img src="Assets/essential-2.png" alt="Beauty products"><p>Beauty must-haves</p></article>
-            <article><img src="Assets/essential-3.png" alt="Computers"><p>Computing deals</p></article>
-            <article><img src="Assets/essential-4.png" alt="Home and office"><p>Home &amp; Office</p></article>
-            <article><img src="Assets/essential-5.png" alt="Sneakers"><p>Sneaker deals</p></article>
-            <article><img src="Assets/essential-6.png" alt="Mobile accessories"><p>Mobile accessories</p></article>
-            <article><img src="Assets/essential-7.png" alt="Fashion"><p>Fashion deals</p></article>
-            <article><img src="Assets/essential-8.png" alt="Supermarket"><p>Supermarket deals</p></article>
-            <article><img src="Assets/essential-9.png" alt="Televisions"><p>Television deals</p></article>
-            <article><img src="Assets/essential-10.png" alt="Kids and baby products"><p>Kids, baby &amp; more</p></article>
-            <article><img src="Assets/essential-11.png" alt="Phones and tablets"><p>Phones &amp; tablets</p></article>
-            <article><img src="Assets/Final.png" alt="Brand festival"><p>Brand festival</p></article>
-        </div>
-    </section>
-
-    <div class="design-1">
-        <p>Top Sellers</p>
-        <p>Up to 50% off</p>
-        <button>
-            See All
-            <i class="fa-solid fa-arrow-right"></i>
-        </button>
-        <button class="arrow" id="slider-left-1">
-            <i class="fa-solid fa-chevron-left"></i>
-        </button>
-        <div></div>
-        <button class="arrow" id="slider-right-1">
-            <i class="fa-solid fa-chevron-right"></i>
-        </button>
-    </div>
-
-    <div class="design-2">
-        <p>Sponsered Products</p>
-        <button class="arrow" id="slider-left-1">
-            <i class="fa-solid fa-chevron-left"></i>
-        </button>
-        <div></div>
-        <button class="arrow" id="slider-right-1">
-            <i class="fa-solid fa-chevron-right"></i>
-        </button>
-    </div>
-
-    <div class="design-1">
-        <p>Brand Festival deals</p>
-        <p>Up to 70% off</p>
-        <button>
-            See All
-            <i class="fa-solid fa-arrow-right"></i>
-        </button>
-        <button class="arrow" id="slider-left-1">
-            <i class="fa-solid fa-chevron-left"></i>
-        </button>
-        <div></div>
-        <button class="arrow" id="slider-right-1">
-            <i class="fa-solid fa-chevron-right"></i>
-        </button>
-    </div>
-
-    <div class="design-2">
-        <p>Top selling items</p>
-        <button>
-            See All
-            <i class="fa-solid fa-arrow-right"></i>
-        </button>
-        <button class="arrow" id="slider-left-1">
-            <i class="fa-solid fa-chevron-left"></i>
-        </button>
-        <div></div>
-        <button class="arrow" id="slider-right-1">
-            <i class="fa-solid fa-chevron-right"></i>
-        </button>
-    </div>
-
-    <div class="design-1">
-        <p>Samsung Official Store</p>
-        <button>
-            See All
-            <i class="fa-solid fa-arrow-right"></i>
-        </button>
-        <button class="arrow" id="slider-left-1">
-            <i class="fa-solid fa-chevron-left"></i>
-        </button>
-        <div></div>
-        <button class="arrow" id="slider-right-1">
-            <i class="fa-solid fa-chevron-right"></i>
-        </button>
-    </div>
-
-    <div class="design-2">
-        <!-- SUB-SECTION -->
-        <button class="arrow" id="slider-left-1">
-            <i class="fa-solid fa-chevron-left"></i>
-        </button>
-        <div></div>
-        <button class="arrow" id="slider-right-1">
-            <i class="fa-solid fa-chevron-right"></i>
-        </button>
-    </div>
-
-    <div class="design-1">
-        <p>Deals On Air Conditioners</p>
-        <button>
-            See All
-            <i class="fa-solid fa-arrow-right"></i>
-        </button>
-        <button class="arrow" id="slider-left-1">
-            <i class="fa-solid fa-chevron-left"></i>
-        </button>
-        <div></div>
-        <button class="arrow" id="slider-right-1">
-            <i class="fa-solid fa-chevron-right"></i>
-        </button>
-    </div>
-
-    <div class="design-2">
-        <p>Smart TVs deals</p>
-        <button>
-            See All
-            <i class="fa-solid fa-arrow-right"></i>
-        </button>
-        <button class="arrow" id="slider-left-1">
-            <i class="fa-solid fa-chevron-left"></i>
-        </button>
-        <div></div>
-        <button class="arrow" id="slider-right-1">
-            <i class="fa-solid fa-chevron-right"></i>
-        </button>
-    </div>
-
-    <div class="design-1">
-        <p>Kitchen And Dining deals</p>
-        <button>
-            See All
-            <i class="fa-solid fa-arrow-right"></i>
-        </button>
-        <button class="arrow" id="slider-left-1">
-            <i class="fa-solid fa-chevron-left"></i>
-        </button>
-        <div></div>
-        <button class="arrow" id="slider-right-1">
-            <i class="fa-solid fa-chevron-right"></i>
-        </button>
-    </div>
-
-    <div class="design-2">
-        <p>Health and Relaxation deals</p>
-        <button>
-            See All
-            <i class="fa-solid fa-arrow-right"></i>
-        </button>
-        <button class="arrow" id="slider-left-1">
-            <i class="fa-solid fa-chevron-left"></i>
-        </button>
-        <div></div>
-        <button class="arrow" id="slider-right-1">
-            <i class="fa-solid fa-chevron-right"></i>
-        </button>
-    </div>
-
-    <div class="design-1">
-        <p>Men's Clothing - Trouser & Chinos</p>
-        <button>
-            See All
-            <i class="fa-solid fa-arrow-right"></i>
-        </button>
-        <button class="arrow" id="slider-left-1">
-            <i class="fa-solid fa-chevron-left"></i>
-        </button>
-        <div></div>
-        <button class="arrow" id="slider-right-1">
-            <i class="fa-solid fa-chevron-right"></i>
-        </button>
-    </div>
-
-    <div class="design-2">
-        <p>Hikers Official Store</p>
-        <button>
-            See All
-            <i class="fa-solid fa-arrow-right"></i>
-        </button>
-        <button class="arrow" id="slider-left-1">
-            <i class="fa-solid fa-chevron-left"></i>
-        </button>
-        <div></div>
-        <button class="arrow" id="slider-right-1">
-            <i class="fa-solid fa-chevron-right"></i>
-        </button>
-    </div>
-
-    <div class="design-1">
-        <p>Beyond The Brand</p>
-        <button>
-            See All
-            <i class="fa-solid fa-arrow-right"></i>
-        </button>
-        <button class="arrow" id="slider-left-1">
-            <i class="fa-solid fa-chevron-left"></i>
-        </button>
-        <div></div>
-        <button class="arrow" id="slider-right-1">
-            <i class="fa-solid fa-chevron-right"></i>
-        </button>
-    </div>
-
-    <div class="design-2">
-        <p>Computing Deals</p>
-        <button>
-            See All
-            <i class="fa-solid fa-arrow-right"></i>
-        </button>
-        <button class="arrow" id="slider-left-1">
-            <i class="fa-solid fa-chevron-left"></i>
-        </button>
-        <div></div>
-        <button class="arrow" id="slider-right-1">
-            <i class="fa-solid fa-chevron-right"></i>
-        </button>
-    </div>
-
-    <div class="design-1">
-        <p>Mobile Accessories deals</p>
-        <button>
-            See All
-            <i class="fa-solid fa-arrow-right"></i>
-        </button>
-        <button class="arrow" id="slider-left-1">
-            <i class="fa-solid fa-chevron-left"></i>
-        </button>
-        <div></div>
-        <button class="arrow" id="slider-right-1">
-            <i class="fa-solid fa-chevron-right"></i>
-        </button>
-    </div>
-
-    <div class="design-2">
-        <p>Kids Play Nest (Toys)</p>
-        <p>Kids Corner</p>
-        <button>
-            See All
-            <i class="fa-solid fa-arrow-right"></i>
-        </button>
-        <button class="arrow" id="slider-left-1">
-            <i class="fa-solid fa-chevron-left"></i>
-        </button>
-        <div></div>
-        <button class="arrow" id="slider-right-1">
-            <i class="fa-solid fa-chevron-right"></i>
-        </button>
-    </div>
-
-    <div class="design-1">
-        <p>Hot deals right now</p>
-        <p>Pay On Delivery</p>
-        <button>
-            See All
-            <i class="fa-solid fa-arrow-right"></i>
-        </button>
-        <button class="arrow" id="slider-left-1">
-            <i class="fa-solid fa-chevron-left"></i>
-        </button>
-        <div></div>
-        <button class="arrow" id="slider-right-1">
-            <i class="fa-solid fa-chevron-right"></i>
-        </button>
-    </div>
-
-    <div class="design-2">
-        <p>Premium Bar - Gin &amp; Vodka</p>
-        <p>18+ ( Drink Responsibly)</p>
-        <button>
-            See All
-            <i class="fa-solid fa-arrow-right"></i>
-        </button>
-        <button class="arrow" id="slider-left-1">
-            <i class="fa-solid fa-chevron-left"></i>
-        </button>
-        <div></div>
-        <button class="arrow" id="slider-right-1">
-            <i class="fa-solid fa-chevron-right"></i>
-        </button>
-    </div>
-
-    <div class="design-1">
-        <p>Games & Consoles</p>
-        <button>
-            See All
-            <i class="fa-solid fa-arrow-right"></i>
-        </button>
-        <button class="arrow" id="slider-left-1">
-            <i class="fa-solid fa-chevron-left"></i>
-        </button>
-        <div></div>
-        <button class="arrow" id="slider-right-1">
-            <i class="fa-solid fa-chevron-right"></i>
-        </button>
-    </div>
-
-    <section class="about-store" aria-labelledby="about-store-title">
-      <div class="about-store__intro">
-        <span class="about-store__eyebrow">Nigeria's online marketplace</span>
-        <h2 id="about-store-title">Everyday shopping made simple</h2>
-        <p>Find the things you need, discover fresh deals, and shop confidently from anywhere in Nigeria.</p>
-        <div class="about-store__benefits">
-          <span><i class="fa-solid fa-truck-fast"></i> Fast delivery</span>
-          <span><i class="fa-solid fa-rotate-left"></i> Easy returns</span>
-          <span><i class="fa-solid fa-shield-halved"></i> Secure shopping</span>
-        </div>
-      </div>
-
-      <div class="about-store__grid">
-        <article class="about-store__card about-store__card--wide">
-          <div class="about-store__icon"><i class="fa-solid fa-bag-shopping"></i></div>
-          <div>
-            <h3>Shop for everything you need</h3>
-            <p>shopwithbami brings fashion, electronics, mobile phones, computers, groceries, and everyday essentials together in one convenient storefront. Shop from home or during a break and have your order delivered without the stress of moving around.</p>
-            <p>Discover new products, compare deals, and enjoy flexible payment options, free returns, and a smooth online shopping experience.</p>
-          </div>
-        </article>
-
-        <article class="about-store__card">
-          <div class="about-store__icon"><i class="fa-solid fa-tags"></i></div>
-          <h3>Original products, great prices</h3>
-          <p>Explore competitive offers from popular brands including Oraimo, Samsung, Infinix, Xiaomi, Tecno, Adidas, Nike, and Trendyol. Featured stores make it easy to discover launches, brand days, and limited offers.</p>
-          <a href="#" class="about-store__link">Explore official stores <i class="fa-solid fa-arrow-right"></i></a>
-        </article>
-
-        <article class="about-store__card">
-          <div class="about-store__icon"><i class="fa-solid fa-shirt"></i></div>
-          <h3>Fashion for every style</h3>
-          <p>Browse clothing, shoes, bags, jewelry, watches, sportswear, and accessories for women, men, and children. Find current styles for daily wear, work, special occasions, and the gym.</p>
-          <a href="#" class="about-store__link">Shop fashion <i class="fa-solid fa-arrow-right"></i></a>
-        </article>
-      </div>
-    </section>
-
-    
-<footer class="site-footer">
-  <div class="footer-newsletter">
-    <div class="newsletter-brand">
-      <h2>shopwithbami</h2>
-      <p>PAY LESS, LIVE MORE!</p>
-    </div>
-
-    <div class="newsletter-content">
-      <h3>NEW TO SHOPWITHBAMI?</h3>
-      <p>Subscribe to our newsletter to get updates on our latest offers!</p>
-      <form class="newsletter-form">
-        <input type="email" placeholder="Enter E-mail Address">
-        <button type="submit">SUBSCRIBE</button>
-      </form>
-      <label>
-        <input type="checkbox">
-        I agree to shopwithbami's Privacy and Cookie Policy.
-      </label>
-    </div>
-
-    <div class="newsletter-app">
-      <h3>GET THE SHOPWITHBAMI APP</h3>
-      <p>Get access to exclusive offers!</p>
-      <div class="app-buttons">
-        <a href="#">▶ Google Play</a>
-        <a href="#">App Store</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="footer-main">
-    <div class="footer-column">
-      <h4>LET US HELP YOU</h4>
-      <a href="#">Help Center</a>
-      <a href="#">How to buy on shopwithbami</a>
-      <a href="#">Delivery Options</a>
-      <a href="#">Return Policy</a>
-      <a href="#">Corporate & Bulk Purchases</a>
-      <a href="#">Report a Product</a>
-      <a href="#">Dispute Resolution Policy</a>
-    </div>
-
-    <div class="footer-column">
-      <h4>ABOUT SHOPWITHBAMI</h4>
-      <a href="#">About Us</a>
-      <a href="#">Careers</a>
-      <a href="#">Terms and Conditions</a>
-      <a href="#">Privacy Notice</a>
-      <a href="#">Express delivery</a>
-      <a href="#">Global marketplace</a>
-      <a href="#">Flash Sales</a>
-    </div>
-
-    <div class="footer-column">
-      <h4>MAKE MONEY WITH US</h4>
-      <a href="#">Sell on shopwithbami</a>
-      <a href="#">Become an Affiliate</a>
-      <a href="#">Become a Logistics Partner</a>
-      <a href="#">Vendor Hub</a>
-      <a href="#">Start Selling</a>
-    </div>
-
-    <div class="footer-column">
-      <h4>SHOPWITHBAMI INTERNATIONAL</h4>
-      <a href="#">Algeria</a>
-      <a href="#">Egypt</a>
-      <a href="#">Ghana</a>
-      <a href="#">Ivory Coast</a>
-      <a href="#">Kenya</a>
-      <a href="#">Morocco</a>
-      <a href="#">Senegal</a>
-      <a href="#">Uganda</a>
-    </div>
-
-    <div class="footer-column">
-      <h4>JOIN US ON</h4>
-      <div class="social-links">
-        <a href="#">Facebook</a>
-        <a href="#">Instagram</a>
-        <a href="#">Twitter / X</a>
-        <a href="#">YouTube</a>
-        <a href="#">TikTok</a>
-      </div>
-
-      <h4 class="payment-heading">PAYMENT METHODS</h4>
-      <div class="payment-methods">
-        <span>VISA</span>
-        <span>Mastercard</span>
-        <span>Verve</span>
-        <span>Pay on Delivery</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    <div class="footer-logo">shopwithbami</div>
-    <p>© 2026 shopwithbami. All rights reserved.</p>
-    <div class="bottom-links">
-      <a href="#">Privacy</a>
-      <a href="#">Terms</a>
-      <a href="#">Cookies</a>
-    </div>
-  </div>
-</footer>
-
-
-
-
+    <script src="catalog.js"></script>
     <script src="store.js"></script>
-
 </body>
 
 </html>
