@@ -50,7 +50,8 @@ body {
 }
 
 .Email-Form button {
-    background-color: orange;
+    background-color: #6d28d9;
+    color: white;
     border: 1px solid;
     cursor: pointer;
 }
@@ -89,7 +90,7 @@ body {
 }
 
 .terms a {
-    color: orange;
+    color: #6d28d9;
     font-size: 14px;
 }
 
@@ -98,8 +99,8 @@ body {
     margin: 0 10px;
 }
 
-.jumia-logo {
-    width: 100px;
+.brand-logo {
+    width: 160px;
     max-height: 35px;
     object-fit: contain;
 }

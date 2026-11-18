@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1248 357" role="img" aria-labelledby="title desc">
+  <title id="title">Welcome to shoupwithbami</title>
+  <desc id="desc">A purple shopping banner with bags, boxes, and special offer text</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#21143d"/>
+      <stop offset="0.58" stop-color="#5b21b6"/>
+      <stop offset="1" stop-color="#8b5cf6"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#fff" stop-opacity=".98"/>
+      <stop offset="1" stop-color="#ede9fe" stop-opacity=".95"/>
+    </linearGradient>
+  </defs>
+  <rect width="1248" height="357" rx="20" fill="url(#bg)"/>
+  <circle cx="1080" cy="38" r="190" fill="#fff" opacity=".07"/>
+  <circle cx="1130" cy="330" r="235" fill="#c4b5fd" opacity=".12"/>
+  <g fill="#fff" font-family="Arial, Helvetica, sans-serif">
+    <text x="76" y="92" font-size="25" font-weight="700" letter-spacing="3">SHOUPWITHBAMI</text>
+    <text x="76" y="172" font-size="58" font-weight="800">Better finds.</text>
+    <text x="76" y="233" font-size="58" font-weight="800">Brighter days.</text>
+    <text x="80" y="278" font-size="21" opacity=".88">Fresh deals across fashion, tech, home and more.</text>
+  </g>
+  <rect x="80" y="302" width="174" height="38" rx="19" fill="#fff"/>
+  <text x="167" y="328" text-anchor="middle" fill="#5b21b6" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="800">SHOP THE DEALS</text>
+  <g transform="translate(790 46)">
+    <rect x="0" y="44" width="340" height="238" rx="30" fill="url(#card)" transform="rotate(-4 170 163)"/>
+    <rect x="58" y="86" width="126" height="151" rx="22" fill="#7c3aed"/>
+    <path d="M87 95c0-34 68-34 68 0" fill="none" stroke="#4c1d95" stroke-width="10" stroke-linecap="round"/>
+    <circle cx="95" cy="155" r="7" fill="#fff"/>
+    <circle cx="147" cy="155" r="7" fill="#fff"/>
+    <path d="M91 184c19 19 40 19 59 0" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round"/>
+    <path d="M210 132h84v104h-84z" fill="#f5d0fe"/>
+    <path d="M210 132l42-26 42 26-42 28z" fill="#e9d5ff"/>
+    <path d="M252 160v76" stroke="#c084fc" stroke-width="5"/>
+    <path d="M210 132l42 28 42-28" fill="none" stroke="#c084fc" stroke-width="5"/>
+    <circle cx="300" cy="86" r="35" fill="#facc15"/>
+    <text x="300" y="94" text-anchor="middle" fill="#4c1d95" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="900">SALE</text>
+  </g>
+</svg>

@@ -1,4 +1,5 @@
 
+// shoupwithbami storefront interactions
 class Product {
     constructor(image, name, rating, cost, originalcost, percentoff) {
         this.image = image;

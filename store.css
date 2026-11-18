@@ -15,6 +15,15 @@ body {
     color: #282828;
 }
 
+.site-notice {
+    padding: 7px 16px;
+    background: #21143d;
+    color: #fff;
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: .2px;
+}
+
 button {
     font-family: inherit;
     cursor: pointer;
@@ -74,14 +83,14 @@ button {
     margin-right: 5px;
     border: 0;
     border-radius: 20px;
-    background-color: orange;
+    background-color: #6d28d9;
     color: white;
     font-weight: bold;
     transition: background-color 0.2s;
 }
 
 .search-button:hover {
-    background-color: #e87800;
+    background-color: #4c1d95;
 }
 
 .topbar-button {
@@ -94,7 +103,7 @@ button {
 }
 
 .topbar-button:hover {
-    color: #f68b1e;
+    color: #6d28d9;
 }
 
 .topbar-button i {
@@ -146,7 +155,7 @@ button {
 
 .move-right-one:hover,
 .move-left-one:hover {
-    background-color: #f68b1e;
+    background-color: #6d28d9;
     color: white;
 }
 
@@ -211,7 +220,7 @@ button {
 
 .move-right-two:hover,
 .move-left-two:hover {
-    background-color: #f68b1e;
+    background-color: #6d28d9;
     color: white;
 }
 
@@ -279,7 +288,7 @@ button {
 }
 
 .nav-two-child li:hover {
-    color: #f68b1e;
+    color: #6d28d9;
 }
 
 /* SECONDARY NAVIGATION ARROWS */
@@ -302,8 +311,8 @@ button {
 }
 
 .nav-two-btn:hover {
-    border-color: #f68b1e;
-    background-color: #f68b1e;
+    border-color: #6d28d9;
+    background-color: #6d28d9;
     color: white;
 }
 
@@ -340,7 +349,7 @@ button {
     flex-wrap: wrap;
     min-height: 85px;
     padding: 15px 22px;
-    background: linear-gradient(110deg, #e94b32, #f68b1e);
+    background: linear-gradient(110deg, #4c1d95, #8b5cf6);
     color: white;
 }
 
@@ -637,7 +646,7 @@ button {
     padding: 9px 13px;
     border: none;
     border-radius: 6px;
-    background: #f68b1e;
+    background: #6d28d9;
     color: white;
     font-weight: 700;
 }
@@ -661,7 +670,7 @@ button {
 }
 
 .arrow:hover {
-    background: #f68b1e;
+    background: #6d28d9;
     color: white;
 }
 
@@ -865,7 +874,7 @@ button {
     flex: 0 0 180px;
 }
 
-.jumia-footer {
+.site-footer {
   background: #282828;
   color: #fff;
   font-family: Arial, sans-serif;
@@ -873,7 +882,7 @@ button {
   
 }
 
-.jumia-footer a {
+.site-footer a {
   color: #ccc;
   text-decoration: none;
   font-size: 13px;
@@ -882,8 +891,8 @@ button {
   transition: color 0.2s;
 }
 
-.jumia-footer a:hover {
-  color: #f68b1e;
+.site-footer a:hover {
+  color: #8b5cf6;
 }
 
 .footer-newsletter {
@@ -897,7 +906,7 @@ button {
 
 .newsletter-brand h2,
 .footer-logo {
-  color: #f68b1e;
+  color: #8b5cf6;
   font-size: 30px;
   font-weight: 900;
   margin: 0;
@@ -937,7 +946,7 @@ button {
 }
 
 .newsletter-form button {
-  background: #f68b1e;
+  background: #6d28d9;
   color: white;
   border: none;
   border-radius: 4px;
