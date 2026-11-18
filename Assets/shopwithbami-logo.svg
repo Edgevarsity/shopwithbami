@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 72" role="img" aria-labelledby="title desc">
-  <title id="title">shoupwithbami</title>
-  <desc id="desc">A purple shopping bag with a smile beside the shoupwithbami wordmark</desc>
+  <title id="title">shopwithbami</title>
+  <desc id="desc">A purple shopping bag with a smile beside the shopwithbami wordmark</desc>
   <defs>
     <linearGradient id="bag" x1="8" y1="8" x2="64" y2="66" gradientUnits="userSpaceOnUse">
       <stop stop-color="#8b5cf6"/>
@@ -12,5 +12,5 @@
   <circle cx="23" cy="38" r="3" fill="#fff"/>
   <circle cx="43" cy="38" r="3" fill="#fff"/>
   <path d="M22 49c7 7 15 7 22 0" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
-  <text x="76" y="48" fill="#21143d" font-family="Arial, Helvetica, sans-serif" font-size="35" font-weight="800" letter-spacing="-1.4">shoup<tspan fill="#6d28d9">withbami</tspan></text>
+  <text x="76" y="48" fill="#21143d" font-family="Arial, Helvetica, sans-serif" font-size="35" font-weight="800" letter-spacing="-1.4">shop<tspan fill="#6d28d9">withbami</tspan></text>
 </svg>
