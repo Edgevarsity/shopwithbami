@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,38 +9,210 @@
     <meta name="theme-color" content="#5b21b6">
     <link rel="stylesheet" href="accountcreation.css">
 </head>
+
 <body>
 
-    <img class="creation-logo" src="Assets/shopwithbami-logo.svg" alt="shopwithbami">
+    <a href="index.html" class="back-home-link">&larr; Back to shopwithbami</a>
 
-    <div class="welcome">
-        <h4>Welcome to shopwithbami</h4>
-        <p>Use your email or phone to log in or sign up.</p>
-    </div>
+    <main class="auth-card">
+        <a href="index.html" class="logo-link" aria-label="Return to shopwithbami">
+            <img class="creation-logo" src="Assets/shopwithbami-logo.svg" alt="shopwithbami">
+        </a>
 
-    <form class="Email-Form">
-        <input type="email" placeholder="Enter E-mail Address or Phone Number">
-        <button type="submit">Continue</button>
-    </form>
+        <div class="welcome">
+            <h1 id="auth-heading">Welcome to shopwithbami</h1>
+            <p id="auth-subtext">Use your email or phone to log in or sign up.</p>
+        </div>
 
-    <p class="login-text">Or log in with</p>
+        <form class="Email-Form" id="auth-form" novalidate>
+            <div id="step-contact">
+                <input id="contact-input" type="text" autocomplete="username"
+                    placeholder="Enter E-mail Address or Phone Number"
+                    aria-label="Email address or phone number">
+            </div>
 
-    <div class="logos">
-        <img class="facebook" src="https://tse1.mm.bing.net/th/id/OIP.N24RC8dLPtIGYfPSlKsK7AHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Facebook">
-        <img class="google" src="https://freelogopng.com/images/all_img/1657952440google-logo-png-transparent.png" alt="Google">
-    </div>
+            <div id="step-profile" hidden>
+                <div class="contact-pill">
+                    <span id="chosen-contact"></span>
+                    <button type="button" class="link-btn" id="change-contact-btn">Change</button>
+                </div>
+                <input id="name-input" type="text" autocomplete="name" placeholder="Full Name (e.g. Tunde Adebayo)"
+                    aria-label="Full Name">
+                <input id="password-input" type="password" autocomplete="current-password"
+                    placeholder="Password (min. 6 characters)" aria-label="Password">
+            </div>
 
-    <div class="terms">
-        <p>By continuing you agree to shopwithbami’s</p>
-        <div>
-            <a href="#">Terms and Conditions</a>
-            <a href="#">Privacy Policy</a>
+            <p class="form-error" id="form-error" role="alert" hidden></p>
+            <button type="submit" id="auth-submit-btn">Continue</button>
+        </form>
+
+        <p class="login-text">Or log in with</p>
+
+        <div class="logos">
+            <button type="button" class="social-btn" data-provider="Facebook" aria-label="Continue with Facebook">
+                <svg class="facebook" viewBox="0 0 48 48" aria-hidden="true">
+                    <circle cx="24" cy="24" r="22" fill="#1877F2"/>
+                    <path d="M29.4 25.5l.9-5.8h-5.6V16c0-1.6.8-3.1 3.3-3.1h2.6V8s-2.3-.4-4.6-.4c-4.7 0-7.7 2.8-7.7 8v4.1h-5.1v5.8h5.1V40h6.4V25.5h4.7z" fill="#fff"/>
+                </svg>
+                <span>Facebook</span>
+            </button>
+
+            <button type="button" class="social-btn" data-provider="Google" aria-label="Continue with Google">
+                <svg class="google" viewBox="0 0 48 48" aria-hidden="true">
+                    <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+                    <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+                    <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+                    <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+                </svg>
+                <span>Google</span>
+            </button>
+        </div>
+
+        <div class="terms">
+            <p>By continuing you agree to shopwithbami’s</p>
+            <div>
+                <button type="button" class="policy-link" data-policy="Terms and Conditions">Terms and Conditions</button>
+                <button type="button" class="policy-link" data-policy="Privacy Policy">Privacy Policy</button>
+            </div>
+        </div>
+
+        <p class="help">Need help? Visit our Help Center or contact us on 02018881106</p>
+
+        <img class="brand-logo" src="Assets/shopwithbami-logo.svg" alt="shopwithbami">
+    </main>
+
+    <div class="policy-backdrop" id="policy-backdrop" hidden>
+        <div class="policy-modal" role="dialog" aria-modal="true" aria-labelledby="policy-title">
+            <h2 id="policy-title">Policy</h2>
+            <p id="policy-text"></p>
+            <button type="button" id="policy-close-btn">Close</button>
         </div>
     </div>
 
-    <p class="help">Need help? Visit our Help Center or contact us on 02018881106</p>
+    <script>
+        (function () {
+            "use strict";
 
-    <img class="brand-logo" src="Assets/shopwithbami-logo.svg" alt="shopwithbami">
+            const form = document.getElementById("auth-form");
+            const stepContact = document.getElementById("step-contact");
+            const stepProfile = document.getElementById("step-profile");
+            const contactInput = document.getElementById("contact-input");
+            const nameInput = document.getElementById("name-input");
+            const passwordInput = document.getElementById("password-input");
+            const chosenContact = document.getElementById("chosen-contact");
+            const changeContactBtn = document.getElementById("change-contact-btn");
+            const submitBtn = document.getElementById("auth-submit-btn");
+            const errorEl = document.getElementById("form-error");
+            const headingEl = document.getElementById("auth-heading");
+            const subtextEl = document.getElementById("auth-subtext");
+
+            let currentStep = 1;
+            let savedContact = "";
+
+            function showError(msg) {
+                errorEl.textContent = msg;
+                errorEl.hidden = !msg;
+            }
+
+            function isValidEmailOrPhone(val) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                const phoneDigits = val.replace(/[\s\-()+]/g, "");
+                const phoneRegex = /^\d{10,15}$/;
+                return emailRegex.test(val) || phoneRegex.test(phoneDigits);
+            }
+
+            function completeLogin(name, contact) {
+                try {
+                    window.localStorage.setItem("shopwithbami_user", JSON.stringify({
+                        name: name,
+                        contact: contact,
+                        signedInAt: new Date().toISOString()
+                    }));
+                } catch (e) {}
+                window.location.href = "index.html";
+            }
+
+            form.addEventListener("submit", function (e) {
+                e.preventDefault();
+                showError("");
+
+                if (currentStep === 1) {
+                    const contact = contactInput.value.trim();
+                    if (!isValidEmailOrPhone(contact)) {
+                        showError("Please enter a valid email address or phone number (e.g. name@example.com or 08031234567).");
+                        contactInput.focus();
+                        return;
+                    }
+                    savedContact = contact;
+                    chosenContact.textContent = contact;
+                    stepContact.hidden = true;
+                    stepProfile.hidden = false;
+                    headingEl.textContent = "Complete your sign in";
+                    subtextEl.textContent = "Enter your name and password for this demo account.";
+                    submitBtn.textContent = "Sign In to shopwithbami";
+                    currentStep = 2;
+                    nameInput.focus();
+                    return;
+                }
+
+                const name = nameInput.value.trim();
+                const password = passwordInput.value;
+                if (name.length < 2) {
+                    showError("Please enter your full name.");
+                    nameInput.focus();
+                    return;
+                }
+                if (password.length < 6) {
+                    showError("Password must be at least 6 characters.");
+                    passwordInput.focus();
+                    return;
+                }
+                completeLogin(name, savedContact);
+            });
+
+            changeContactBtn.addEventListener("click", function () {
+                currentStep = 1;
+                stepProfile.hidden = true;
+                stepContact.hidden = false;
+                headingEl.textContent = "Welcome to shopwithbami";
+                subtextEl.textContent = "Use your email or phone to log in or sign up.";
+                submitBtn.textContent = "Continue";
+                showError("");
+                contactInput.focus();
+            });
+
+            document.querySelectorAll(".social-btn").forEach(function (btn) {
+                btn.addEventListener("click", function () {
+                    const provider = btn.dataset.provider;
+                    completeLogin("Bami Shopper", `demo.${provider.toLowerCase()}@shopwithbami.demo`);
+                });
+            });
+
+            const backdrop = document.getElementById("policy-backdrop");
+            const policyTitle = document.getElementById("policy-title");
+            const policyText = document.getElementById("policy-text");
+
+            document.querySelectorAll(".policy-link").forEach(function (btn) {
+                btn.addEventListener("click", function () {
+                    const title = btn.dataset.policy;
+                    policyTitle.textContent = title;
+                    policyText.textContent = title === "Terms and Conditions"
+                        ? "shopwithbami is an independent ecommerce demo storefront. Account details and orders are stored locally in your browser for demonstration purposes only."
+                        : "Your demo account information stays strictly in your browser's local storage and is never transmitted to any external server.";
+                    backdrop.hidden = false;
+                });
+            });
+
+            document.getElementById("policy-close-btn").addEventListener("click", function () {
+                backdrop.hidden = true;
+            });
+
+            backdrop.addEventListener("click", function (e) {
+                if (e.target === backdrop) backdrop.hidden = true;
+            });
+        })();
+    </script>
 
 </body>
+
 </html>

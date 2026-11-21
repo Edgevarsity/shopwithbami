@@ -1,33 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-        <!-- Font Awesome 6 CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-</head>
-<style>
-.product-p {
-margin: 0; /* Removes default paragraph margins */
-padding: 0; /* Removes padding if any */
-line-height: 1.2; /* Adjusts vertical spacing between lines */
-}
-</style>
-<body style="background-color: blueviolet;">
+    <title>Product Details | shopwithbami</title>
+    <link rel="icon" type="image/svg+xml" href="Assets/favicon.svg">
+    <meta name="theme-color" content="#5b21b6">
 
-    <div style="background-color: rgb(255, 253, 253); height: 325px; width: 160px; border-radius: 10px;">
-        <img src="https://www.bing.com/th?id=OPHS.RHjA%2fbTfWQ7XPg474C474&o=5&pid=21.1&w=140&h=200&qlt=100&dpr=1&o=2&pcl=f5f5f5" style="padding-left: 13px; padding-top: 2px;">
-        <p>Samsung Galaxy Watch9 44mm Bluet</p>
-        <p><i class="fa-solid fa-star" style="color: rgb(255, 212, 59);"></i>5</p>
-        <p style="font-size: 30px;">N 509,355</p>
-        <div style="display: flex; gap: 10px;">
-            <p style="text-decoration: line-through;">N 600,000</p>
-            <div style="background-color: rgb(8, 148, 8); border-radius: 5px;"><p style="color: white;">-15%</p></div>
+    <!-- Font Awesome 6 CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="store.css">
+</head>
+
+<body>
+
+    <div class="site-notice">shopwithbami is an independent demo storefront.</div>
+
+    <!-- NAVIGATION -->
+    <header class="site-header">
+        <div class="nav-one">
+            <a href="index.html" class="brand-home-link" aria-label="shopwithbami home">
+                <img src="Assets/shopwithbami-logo.svg" alt="shopwithbami logo" width="165" height="33">
+            </a>
+
+            <div class="search-wrapper">
+                <form class="searchbar" id="pdp-search-form" role="search">
+                    <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                    <input class="inner-searchbar" id="pdp-search-input" type="search"
+                        placeholder="Search products, brands and categories"
+                        aria-label="Search products, brands and categories">
+                    <button class="search-button" type="submit">Search</button>
+                </form>
+            </div>
+
+            <div class="nav-actions">
+                <div class="swb-dropdown" id="nav-account-dropdown">
+                    <button type="button" class="topbar-button" aria-expanded="false" aria-haspopup="true">
+                        <i class="fa-regular fa-user" aria-hidden="true"></i>
+                        <span id="nav-account-label">Account</span>
+                        <i class="fa-solid fa-angle-down" aria-hidden="true"></i>
+                    </button>
+                    <div class="swb-dropdown-menu" id="nav-account-menu" role="menu"></div>
+                </div>
+
+                <div class="swb-dropdown" id="nav-help-dropdown">
+                    <button type="button" class="topbar-button" aria-expanded="false" aria-haspopup="true">
+                        <i class="fa-regular fa-circle-question" aria-hidden="true"></i>
+                        <span>Help</span>
+                        <i class="fa-solid fa-angle-down" aria-hidden="true"></i>
+                    </button>
+                    <div class="swb-dropdown-menu" id="nav-help-menu" role="menu">
+                        <button type="button" class="swb-dropdown-item" data-help="center"><i class="fa-solid fa-life-ring"></i> Help Center</button>
+                        <button type="button" class="swb-dropdown-item" data-help="track"><i class="fa-solid fa-truck-fast"></i> Track My Order</button>
+                        <button type="button" class="swb-dropdown-item" data-help="returns"><i class="fa-solid fa-rotate-left"></i> Returns &amp; Refunds</button>
+                        <div class="swb-dropdown-divider"></div>
+                        <button type="button" class="swb-dropdown-item" data-help="contact"><i class="fa-solid fa-phone"></i> Call: 0201 888 1106</button>
+                    </div>
+                </div>
+
+                <button type="button" class="topbar-button cart-topbar-btn" id="nav-cart-btn" aria-label="Open shopping cart">
+                    <span class="cart-icon-wrap">
+                        <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+                        <span class="cart-count-badge" id="cart-badge" hidden>0</span>
+                    </span>
+                    <span>Cart</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="pdp-page" id="pdp-root">
+        <!-- Populated dynamically by product.js -->
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-newsletter">
+            <div class="newsletter-brand">
+                <h2>shopwithbami</h2>
+                <p>PAY LESS, LIVE MORE!</p>
+            </div>
+
+            <div class="newsletter-content">
+                <h3>NEW TO SHOPWITHBAMI?</h3>
+                <p>Subscribe to our newsletter to get updates on our latest offers!</p>
+                <form class="newsletter-form" novalidate>
+                    <input type="email" placeholder="Enter E-mail Address" aria-label="Email address">
+                    <button type="submit">SUBSCRIBE</button>
+                </form>
+                <label class="newsletter-consent">
+                    <input type="checkbox">
+                    I agree to shopwithbami's Privacy and Cookie Policy.
+                </label>
+            </div>
+
+            <div class="newsletter-app">
+                <h3>GET THE SHOPWITHBAMI APP</h3>
+                <p>Get access to exclusive offers!</p>
+                <div class="app-buttons">
+                    <a href="#" data-info="shopwithbami Mobile App (Google Play)"><i class="fa-brands fa-google-play"></i> Google Play</a>
+                    <a href="#" data-info="shopwithbami Mobile App (App Store)"><i class="fa-brands fa-apple"></i> App Store</a>
+                </div>
+            </div>
         </div>
 
-    </div>
-    
+        <div class="footer-bottom">
+            <div class="footer-logo">shopwithbami</div>
+            <p>&copy; 2026 shopwithbami. All rights reserved.</p>
+            <div class="bottom-links">
+                <a href="index.html">Back to Store</a>
+                <a href="#" data-info="Privacy Policy">Privacy</a>
+                <a href="#" data-info="Terms of Use">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="catalog.js"></script>
     <script src="product.js"></script>
 </body>
+
 </html>
